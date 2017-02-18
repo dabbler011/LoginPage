@@ -59,6 +59,9 @@ public class MainActivity extends AppCompatActivity {
                 check=showDataOnToastcreate();
                 if(s3.equals("")||s4.equals(""))
                     Toast.makeText(getBaseContext(),"Username and Password both are mandatory fields" , Toast.LENGTH_LONG).show();
+                else if(isValidEmail(s3)==false){
+                    Toast.makeText(getBaseContext(),"INVALID EMAIL ID" , Toast.LENGTH_LONG).show();
+                }
                 else if(check==0) {
                     db.insert123(e1.getText().toString(), e2.getText().toString());
                     Toast.makeText(getBaseContext(), "Data Inserted", Toast.LENGTH_LONG).show();
@@ -77,6 +80,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(y);
             }
         });
+    }
+    public final static boolean isValidEmail(CharSequence target) {
+        if (target == null) {
+            return false;
+        } else {
+            return android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
+        }
     }
     protected int showDataOnToastcreate() {
         // TODO Auto-generated method stub
