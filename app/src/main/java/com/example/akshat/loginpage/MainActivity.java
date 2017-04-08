@@ -51,32 +51,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        /*b2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                i1.setImageResource(R.drawable.downloadss);
-                s3=e1.getText().toString().trim();
-                s4=e2.getText().toString().trim();
-                check=showDataOnToastcreate();
-                if(s3.equals("")||s4.equals(""))
-                    Toast.makeText(getBaseContext(),"Username and Password both are mandatory fields" , Toast.LENGTH_LONG).show();
-                else if(isValidEmail(s3)==false){
-                    Toast.makeText(getBaseContext(),"INVALID EMAIL ID" , Toast.LENGTH_LONG).show();
-                }
-                else if(check==0) {
-                    db.insert123(e1.getText().toString().trim(), e2.getText().toString().trim());
-                    Toast.makeText(getBaseContext(), "Data Inserted", Toast.LENGTH_LONG).show();
-                    String subject="Welcome To Login Page";
-                    String message="Hi,"+s3+" Login Page Team welcomes you and hope that you will have a great experience ahead.";
-                    SendMail sm=new SendMail(this, s3, subject, message);
-                }
-                else{
-                    Toast.makeText(getBaseContext(), "Email ID Already exists", Toast.LENGTH_LONG).show();
-                }
-                e1.setText("");
-                e2.setText("");
-            }
-        });*/
         b2.setOnClickListener(this);
 
         b3.setOnClickListener(new View.OnClickListener() {
@@ -129,7 +103,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
-    public void onClick(View view) {
+    public void onClick(View view) { sendMail();}
+    public void sendMail(){
         i1.setImageResource(R.drawable.downloadss);
         s3=e1.getText().toString().trim();
         s4=e2.getText().toString().trim();
@@ -141,12 +116,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         else if(check==0) {
             db.insert123(e1.getText().toString().trim(), e2.getText().toString().trim());
-            Toast.makeText(getBaseContext(), s3, Toast.LENGTH_LONG).show();
+            /*Toast.makeText(getBaseContext(), s3, Toast.LENGTH_LONG).show();
             String subject="Welcome To Login Page";
             String message="Hi,"+s3+" Login Page Team welcomes you and hope that you will have a great experience ahead.";
             Toast.makeText(getBaseContext(), message, Toast.LENGTH_LONG).show();
             SendMail sm=new SendMail(this, s3, subject, message);
-            sm.execute();
+            sm.execute();*/
         }
         else{
             Toast.makeText(getBaseContext(), "Email ID Already exists", Toast.LENGTH_LONG).show();

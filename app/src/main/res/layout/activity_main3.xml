@@ -61,7 +61,7 @@
         android:id="@+id/textView3" />
 
     <TextView
-        android:text="E-mail : akshatj011@gmail.com"
+        android:text="E-mail : lit2016016@iiita.ac.in"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView3"

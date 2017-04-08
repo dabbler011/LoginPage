@@ -19,7 +19,7 @@ public class DBAdapter extends SQLiteOpenHelper{
     private static final String KEY_ID = "id";
     private static final String PASSWORD = "pass";
     private static final String EMAIL_ID = "email_id";
-    private static final String SES = "ses";
+
 
     public DBAdapter(Context context) {
         super(context, DATABASE_NAME,null,DATABASE_VERSION);
@@ -30,7 +30,7 @@ public class DBAdapter extends SQLiteOpenHelper{
     public void onCreate(SQLiteDatabase arg0) {
         String CREATE_CONTACTS_TABLE = "CREATE TABLE " + TABLE_CONTACTS + "("
                 + KEY_ID + " INTEGER PRIMARY KEY," + PASSWORD + " TEXT,"
-                + EMAIL_ID + " TEXT," + SES + "INTEGER"+")";
+                + EMAIL_ID + " TEXT"+")";
         arg0.execSQL(CREATE_CONTACTS_TABLE);
     }
 
@@ -46,19 +46,19 @@ public class DBAdapter extends SQLiteOpenHelper{
 /*    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
     }*/
-    private void SES_C(SQLiteDatabase arg0){
+   /* private void SES_C(SQLiteDatabase arg0){
         String SES_CHECK="UPDATE "+TABLE_CONTACTS+" SET ses = 0 where ses = 1";
         arg0.execSQL(SES_CHECK);
-    }
+    }*/
 
     public void insert123(String pass, String email_Id) {
         // TODO Auto-generated method stub
         SQLiteDatabase db=this.getWritableDatabase();
         ContentValues values=new ContentValues();
-        SES_C(getWritableDatabase());
+        //SES_C(getWritableDatabase());
         values.put(PASSWORD, pass);
         values.put(EMAIL_ID, email_Id);
-        values.put(SES,1);
+        //values.put(SES,1);
         db.insert(TABLE_CONTACTS, null, values);
         db.close();
     }
